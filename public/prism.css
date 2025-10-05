@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(245, 245, 245);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    overflow-x: hidden;
+    
+}
+pre {
+    height: 800px;
+    width: 60vw;
+}
+h1,h2 {
+    color: #000000;
+    margin: 40px 0;
+}
+
