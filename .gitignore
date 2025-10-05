@@ -3,4 +3,4 @@ node_modules
 
 # configuration files and settings
 .vscode
-.github/workflows
+.github
