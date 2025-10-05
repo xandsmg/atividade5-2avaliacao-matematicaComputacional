@@ -31,36 +31,34 @@
                         
                         printf("Quanto voce ganha por hora trabalhada? ");
                         scanf("%d", &valorHora);
-                        
+
                         printf("Quantas horas voce trabalha no mês? ");
                         scanf("%d", &horasMes);
-                        
+
                         // Salario Bruto
                         salarioBruto = valorHora * horasMes;
-                        printf("Salario Bruto no mês: R$ %.2f\n", salarioBruto);
-                        
-                        printf("-------------------\nDescontos Aplicados\n-------------------\n");
+                        printf("+ Salário bruto: R$ %.2f\n", salarioBruto);
+
                         // Descontos Aplicados abaixo
                         // imposto de renda 11%
                         impostoRenda = salarioBruto * 0.14;
-                        printf("Imposto de Renda: %.2f\n", impostoRenda);
-                        
+                        printf("- Imposto de Renda: %.2f\n", impostoRenda);
+
                         // INSS 11%
                         inss = salarioBruto * 0.11;
-                        printf("INSS: %.2f\n", inss);
-                        
+                        printf("- INSS: %.2f\n", inss);
+
                         // sindicato 1%
                         sindicato = salarioBruto * 0.01;
-                        printf("Sindicato: %.2f\n", sindicato);
-                        
+                        printf("- Sindicato: %.2f\n", sindicato);
+
                         // Soma de tudo que será descontado    
                         desconto = impostoRenda + inss + sindicato;
-                        
-                        printf("-------------------\n");
+
                         // Salario Líquido
                         salarioLiquido = salarioBruto - desconto;
-                        printf("Salario liquido no mês: %.2f", salarioLiquido);
-                        
+                        printf("= Salario liquido: %.2f", salarioLiquido);
+
                         return 0;
                     }
                 </code>
@@ -69,13 +67,102 @@
             <h2>Questão 2</h2>
             <pre>
                 <code class="language-c">
-                    ...
+                    #include &lt;stdio.h&gt;
+                    #include &lt;stdlib.h&gt; 
+
+                    int main()
+                    {
+                        float valorComb, disRev, custoEtanol, icms, cppc, despesaImposto, valorRefinaria;
+
+                        printf("+ Valor da bomba: R$: ");
+                        scanf("%f", &valorComb);
+                    
+                        disRev = valorComb * 0.17;
+                        printf("- Distribuição e Revenda(17%%): R$ %.2f\n", disRev);
+
+                        custoEtanol = valorComb * 0.12;
+                        printf("- Custo Etanol Anidro (12%%): R$ %.2f\n", custoEtanol);
+
+                        icms = valorComb * 0.28;
+                        printf("- ICMS (28%%): R$ %.2f\n", icms);
+
+                        cppc = valorComb * 0.07;
+                        printf("- CIDE, PIS/PASEP e COFINS (7%%): R$ %.2f\n", cppc);
+
+                        despesaImposto = disRev + custoEtanol + icms +  cppc;
+
+                        valorRefinaria = valorComb - despesaImposto;
+
+                        printf("= Valor da refinaria: R$ %.2f\n", valorRefinaria);
+
+                        return 0;
+                    }
                 </code>
             </pre>
             <h2>Questão 3</h2>
             <pre>
                 <code class="language-c">
-                   ...
+                    #include &lt;stdio.h&gt;
+                    #include &lt;stdlib.h&gt; 
+
+                    int main()
+                    {
+                        
+                        int xSalada, xBacon, xTudo, xEgg, cerveja, refri; // Quantidade
+                        float xSaladaValor, xBaconValor, xTudoValor, xEggValor, cervejaValor, refriValor, valorTotal; // Total
+
+                        printf("                                            Cardápio                                        \n");
+                        printf("--------------------------------------------------------------------------------------------\n");
+
+                        printf("X-salada.............................................................................R$ 5.50\n");
+                        printf("X-Bacon..............................................................................R$ 7.25\n");
+                        printf("X-Tudo...............................................................................R$ 10.30\n");
+                        printf("X-Egg................................................................................R$ 7.00\n");
+                        printf("Cerveja..............................................................................R$ 4.50\n");
+                        printf("Refrigerante.........................................................................R$ 6.00\n\n");
+
+                        printf("Escolha a quantidade de Xsalada: ");
+                        scanf("%d", &xSalada);
+                        xSaladaValor = xSalada * 5.50;
+
+                        printf("Escolha a quantidade de X-Bacon: ");
+                        scanf("%d", &xBacon);
+                        xBaconValor = xBacon * 7.25;
+
+                        printf("Escolha a quantidade de X-Tudo: ");
+                        scanf("%d", &xTudo);
+                        xTudoValor = xTudo * 10.30;
+
+                        printf("Escolha a quantidade de X-Egg: ");
+                        scanf("%d", &xEgg);
+                        xEggValor = xEgg * 7.00;
+
+                        printf("Escolha a quantidade de Cerveja: ");
+                        scanf("%d", &cerveja);
+                        cervejaValor = cerveja * 4.50;
+
+                        printf("Escolha a quantidade de Refrigerante: ");
+                        scanf("%d", &refri);
+                        refriValor = refri * 6.00;
+
+                        valorTotal = xSaladaValor + xBaconValor + xTudoValor + xEggValor + cervejaValor + refriValor;
+
+                        printf("                                         Comprovante\n");
+                        printf("-------------------------------------------------------------------------------------------\n");
+                        printf("Item..................................................................QTD.......VLR...... TOTAL\n");
+                        printf("X-salada..............................................................%d  .......R$ 5.50  %.2f\n",xSalada, xSaladaValor);
+                        printf("X-Bacon...............................................................%d  .......R$ 7.25  %.2f\n",xBacon, xBaconValor);
+                        printf("X-Tudo................................................................%d  .......R$ 10.30 %.2f\n",xTudo, xTudoValor);
+                        printf("X-Egg.................................................................%d  .......R$ 7.00  %.2f\n",xEgg, xEggValor);
+                        printf("Cerveja...............................................................%d  .......R$ 4.50  %.2f\n",cerveja, cervejaValor);
+                        printf("Refrigerante..........................................................%d  .......R$ 6.00  %.2f\n\n",refri, refriValor);
+
+                        printf("---------------------------------------------------------------------------------------  Valor Total\n");
+                        printf("---------------------------------------------------------------------------------------  R$ %.2f", valorTotal);
+
+
+                        return 0;
+                    }
                 </code>
             </pre>
         </div>
